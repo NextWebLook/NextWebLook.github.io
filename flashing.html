@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEXTOS - Flashing Steps</title>
+  <meta name="description" content="How to flash NextOS custom ROMs on Xiaomi devices for a stable, customized experience.">
+  <meta name="keywords" content="NEXTOS, flashing steps, custom ROM, Xiaomi, HyperOS">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .section-inner { margin-top: 100px; margin-bottom: 60px; }
+    .snap-section.has-bg { background: url('assets/images/background.png') center/cover no-repeat; }
+    .feature-card {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Progress bar -->
+  <div id="wenprogressbar" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header id="site-header" role="banner">
+    <div class="header-inner">
+      <div class="logo">NEXT<span class="os">OS</span></div>
+      <nav>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+        <ul id="nav-menu" class="nav-links" aria-hidden="true">
+          <li><a href="/index.html">About</a></li>
+          <li><a href="/index.html#devices">Devices</a></li>
+          <li><a href="/index.html#team">Team</a></li>
+          <li><a href="/index.html#download">Download</a></li>
+          <li><a href="/changelog.html">Changelog</a></li>
+          <li><a href="/flashing.html">Flashing Steps</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="snap-container">
+    <section id="flashing" class="snap-section has-bg">
+      <div class="section-inner fade-card">
+        <h1>Flashing Steps</h1>
+        <div class="features-grid">
+          <div class="feature-card fade-card">
+            <h3>Important Notice</h3>
+            <p>BEFORE FLASHING ROM LOGOUT ALL ACCOUNT FROM YOUR DEVICE</p>
+          </div>
+          <div class="feature-card fade-card">
+            <h3>Flashing an Encrypted Device</h3>
+            <ol>
+              <li>Boot into recovery.</li>
+              <li>Wipe dalvik-cache, data, and metadata.</li>
+              <li>Flash ROM.</li>
+              <li>Reboot recovery.</li>
+              <li>Format data.</li>
+              <li>Reboot system.</li>
+            </ol>
+          </div>
+          <div class="feature-card fade-card">
+            <h3>Flashing from a Decrypted ROM</h3>
+            <ol>
+              <li>Boot into recovery.</li>
+              <li>Reboot recovery.</li>
+              <li>Wipe dalvik-cache, data, and metadata.</li>
+              <li>Reboot system.</li>
+            </ol>
+          </div>
+          <div class="feature-card fade-card">
+            <h3>Dirty Flashing a Decrypted ROM</h3>
+            <p><strong>Note</strong>: Not recommended. Only proceed if the developer confirms dirty flashing is available.</p>
+            <ol>
+              <li>Reboot into recovery.</li>
+              <li>Flash ROM.</li>
+              <li>Reboot recovery.</li>
+              <li>Wipe dalvik-cache.</li>
+              <li>Reboot system.</li>
+            </ol>
+          </div>
+          <div class="feature-card fade-card">
+            <h3>Support</h3>
+            <p>Flashing carries risks. Ensure you have a backup and follow each step carefully.</p>
+            <p><a class="download-btn" href="https://t.me/RedmiN11Pak" aria-label="Join Telegram for NextOS support">Join Telegram</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2025 NEXTOS. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
