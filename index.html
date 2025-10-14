@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEXTOS - Custom ROM</title>
+  <meta name="description" content="NEXTOS is a lightweight, fast, and secure custom ROM for Xiaomi devices, offering performance and customization.">
+  <meta name="keywords" content="NEXTOS, custom ROM, Xiaomi, HyperOS, Android">
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="animated-bg"></div>
+
+  <div id="wenprogressbar" aria-hidden="true"></div>
+
+  <header id="site-header" role="banner">
+    <div class="header-inner">
+      <div class="logo" data-aos="fade-down">NEXT<span class="os">OS</span></div>
+      <nav>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+        <ul id="nav-menu" class="nav-links" aria-hidden="true">
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#devices">Devices</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#download">Download</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="flashing.html">Flashing Steps</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="snap-container">
+    
+    <section id="about" class="snap-section hero-section">
+      <div class="section-inner glass-card" data-aos="zoom-in" data-aos-duration="1000">
+        <h1>Welcome to NEXTOS</h1>
+        <p>A lightweight, fast, and secure custom ROM based on MIUI/HyperOS, focused on performance and user control. Minimal bloat, frequent updates, and a clean UI.</p>
+        <a class="cta-btn" href="#devices" data-aos="fade-up" data-aos-delay="500">See Supported Devices ↓</a>
+      </div>
+      <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
+          <img src="assets/images/logo.png" alt="NEXTOS main logo" class="logo-bg-img">
+      </div>
+    </section>
+
+    <section id="features" class="snap-section">
+      <div class="section-inner">
+        <h1 data-aos="fade-up">Highlights</h1>
+        <div class="features-grid">
+          <div class="feature-card glass-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>Performance</h3>
+            <p>Optimized for smooth responsiveness and low latency. Experience the difference a clean base makes.</p>
+          </div>
+          <div class="feature-card glass-card" data-aos="fade-up" data-aos-delay="200">
+            <h3>Privacy</h3>
+            <p>Security-first approach, minimal telemetry, and timely patches. Your data stays yours.</p>
+          </div>
+          <div class="feature-card glass-card" data-aos="fade-up" data-aos-delay="300">
+            <h3>Customization</h3>
+            <p>Useful tweaks and theming without unnecessary clutter. Personalize your experience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="devices" class="snap-section">
+      <div class="section-inner">
+        <h1 data-aos="fade-up">Supported Devices</h1>
+        <div class="devices-grid">
+          <div class="device-card glass-card" data-aos="flip-left" data-aos-delay="100">
+            <img src="assets/images/devices/xiaomi11.png" alt="Xiaomi 11 device icon">
+            <h4>Xiaomi 11 Ultra</h4>
+            <p>Flagship build — stable & fast</p>
+          </div>
+          <div class="device-card glass-card" data-aos="flip-left" data-aos-delay="200">
+            <img src="assets/images/devices/redmi_note11.png" alt="Redmi Note 11 device icon">
+            <h4>Redmi Note 11</h4>
+            <p>Reliable midrange support</p>
+          </div>
+          <div class="device-card glass-card" data-aos="flip-left" data-aos-delay="300">
+            <img src="assets/images/devices/poco_f3.png" alt="Poco F3 device icon">
+            <h4>Poco F3</h4>
+            <p>Lightweight build for gamers</p>
+          </div>
+        </div>
+        <div class="section-bottom-link" data-aos="fade-up" data-aos-delay="500">
+             <a href="changelog.html" class="cta-btn secondary">View Full Changelog</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="snap-section">
+      <div class="section-inner">
+        <h1 data-aos="fade-up">Meet the Team</h1>
+        <div class="team-grid">
+          <div class="team-member glass-card" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+            <img src="assets/images/owner.png" alt="Faizan Khan, Owner of NEXTOS">
+            <h4>Faizan Khan (FAZO)</h4>
+            <p>Owner & Founder</p>
+          </div>
+          <div class="team-member glass-card" data-aos="fade-up" data-aos-delay="100" data-aos-anchor-placement="center-bottom">
+            <img src="assets/images/co-owner.png" alt="Obito, Co-owner and Lead Developer">
+            <h4>Obito</h4>
+            <p>Co-owner & Lead Developer</p>
+          </div>
+          <div class="team-member glass-card" data-aos="fade-up" data-aos-delay="200" data-aos-anchor-placement="center-bottom">
+            <img src="assets/images/jia.png" alt="Jia, Project Manager">
+            <h4>Jia</h4>
+            <p>Project Manager</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" class="snap-section final-cta">
+      <div class="section-inner glass-card" data-aos="zoom-in" data-aos-duration="1000">
+        <h1>Ready to Flash?</h1>
+        <p>Download the latest stable build for your device and join our community on Telegram.</p>
+        <a class="download-btn cta-btn primary" href="https://t.me/RedmiN11Pak" aria-label="Join Telegram to download NEXTOS ROM">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#ffffff" d="M446.7 98.6l-67.6 318.8c-1.4 6.8-5.5 16.6-16.7 18.9l-132.7 34.6c-9.6 2.5-12.7 6.4-14.7 9.8l-15.3 26.6c-2.3 4-3.5 8.1-1.6 12.1l11.4 23.4c2.8 5.7 6.8 9.3 12.7 10.9l20.8 5.6c5.8 1.5 12.3-.9 17.5-6.1l17-17c4.6-4.6 7.2-9.6 7.2-14.8V281.3c0-14.8-12-26.8-26.8-26.8c-14.8 0-26.8 12-26.8 26.8v114.7c0 5.2 2.6 10.2 7.2 14.8l17 17c5.2 5.2 11.7 7.6 17.5 6.1l20.8-5.6c5.9-1.6 9.9-5.2 12.7-10.9l11.4-23.4c1.9-4-1.6-8.1-1.6-12.1l-15.3-26.6c-2-3.4-5.1-7.3-14.7-9.8l-132.7-34.6c-11.2-2.3-15.3-12.1-16.7-18.9L1.3 98.6C-1.1 86.8 .3 75.3 5.4 66.8C10.6 58.3 18.5 53 27.6 53H420.4c9.1 0 17 5.3 22.2 13.8c5.1 8.5 6.5 20.1 4.1 31.8z"/></svg>
+            Download via Telegram
+        </a>
+        <a href="flashing.html" class="cta-btn secondary">Flashing Guide</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2025 NEXTOS. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
