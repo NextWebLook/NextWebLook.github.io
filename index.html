@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NextWebLook</title>
+  <meta name="description" content="NextWebLook — A creative web vision powered by motion and design.">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="canvas-wrap">
+    <canvas id="bg-canvas"></canvas>
+  </div>
+
+  <header class="site-header">
+    <div class="logo">NextWebLook</div>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Welcome to NextWebLook</h1>
+        <p class="subtitle">A creative web vision powered by motion and design.</p>
+        <a class="cta" href="#projects">See Projects</a>
+      </div>
+      <div class="gradient-wave"></div>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2>Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="assets/placeholder.png" alt="Project 1">
+          <h3>Project One</h3>
+          <p>3D interactive experience with optimized glTF models.</p>
+        </article>
+        <article class="card">
+          <img src="assets/placeholder.png" alt="Project 2">
+          <h3>Project Two</h3>
+          <p>Glassmorphism UI with smooth transitions.</p>
+        </article>
+        <article class="card">
+          <img src="assets/placeholder.png" alt="Project 3">
+          <h3>Project Three</h3>
+          <p>Performance-first 3D portfolio and animations.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About NextWebLook</h2>
+      <p>We craft motion-driven web experiences focused on creativity and performance.</p>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <form id="contact-form" action="https://formspree.io/f/placeholder" method="POST">
+        <input name="name" placeholder="Your name" required>
+        <input name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <p class="small">Or email: hello@nextweblock.example</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © NextWebLook
+  </footer>
+
+  <!-- Three.js + GSAP from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
