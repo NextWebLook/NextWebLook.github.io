@@ -1,40 +1,46 @@
+// Smooth Scrolling for Internal Links
 document.addEventListener('DOMContentLoaded', () => {
-    // ----------------------------------
-    // 1. Initialize AOS (Animate on Scroll)
-    // ----------------------------------
-    AOS.init({
-        duration: 800,       // Duration of the animation (in ms)
-        easing: 'ease-out-back', // Easing function
-        once: true,          // Animation only happens once
-        offset: 150          // Offset (in px) from the original trigger point
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
 
-    // ----------------------------------
-    // 2. Mobile Menu Toggle
-    // ----------------------------------
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
+    // Scroll-to-Top Button
+    const scrollToTopBtn = document.createElement('button');
+    scrollToTopBtn.id = 'scrollToTop';
+    scrollToTopBtn.innerHTML = '&uarr;';
+    scrollToTopBtn.title = 'Back to Top';
+    document.body.appendChild(scrollToTopBtn);
 
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-            navMenu.classList.toggle('is-open');
-            navMenu.setAttribute('aria-hidden', isExpanded);
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.style.display = 'block';
+            scrollToTopBtn.style.opacity = '1';
+        } else {
+            scrollToTopBtn.style.opacity = '0';
+            setTimeout(() => {
+                scrollToTopBtn.style.display = 'none';
+            }, 300);
+        }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
-
-        // Close menu when a link is clicked (for better mobile experience)
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.setAttribute('aria-expanded', 'false');
-                navMenu.classList.remove('is-open');
-                navMenu.setAttribute('aria-hidden', 'true');
-            });
-        });
-    }
-
-    // ----------------------------------
-    // 3. Scroll Progress Bar
+    });
+});    // 3. Scroll Progress Bar
     // ----------------------------------
     const progressBar = document.getElementById('wenprogressbar');
     const snapContainer = document.querySelector('.snap-container');
