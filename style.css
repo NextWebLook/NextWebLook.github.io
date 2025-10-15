@@ -1,0 +1,261 @@
+/* GLOBAL STYLES & RESET */
+:root {
+    --dark-bg: #0d0d0d;
+    --text-color: #ffffff;
+    --accent-color: #8a2be2; /* BlueViolet for highlights */
+    --card-bg-blur: rgba(255, 255, 255, 0.1); 
+    --border-color: rgba(255, 255, 255, 0.2); 
+    --animation-speed: 0.5s; 
+    --scroll-animation-speed: 0.6s; 
+    --section-padding: 80px 0; 
+    --header-height: 70px; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* FIX: Removed padding-top from body; managing content spacing in Hero/Sections is safer */
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* --- HEADER & NAVIGATION FIXES --- */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2000; /* Increased z-index to ensure it is always on top */
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    height: var(--header-height);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+}
+
+.header-logo {
+    height: 30px; 
+    width: auto;
+}
+
+/* Mobile Nav positioning fix */
+nav .nav-links {
+    position: absolute;
+    top: var(--header-height); 
+    z-index: 1500; /* Ensure nav links are above other content */
+    /* ... rest of nav styles remain ... */
+}
+
+@media (min-width: 768px) {
+    /* Desktop fixes */
+    header {
+        padding: 15px 0; /* Slightly larger desktop padding */
+    }
+}
+
+
+/* --- HERO SECTION & WAVE FIXES --- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #180530 0%, #0d0d0d 100%); 
+    padding-top: 0; 
+}
+
+.hero-content {
+    z-index: 5;
+    position: relative;
+    width: 100%;
+    /* FIX: Calculate padding to push content down, clearing the fixed header */
+    padding-top: calc(var(--header-height) + 50px); 
+    animation: fadeIn 1s ease-out;
+}
+
+/* Animated Multi-Color Wave Styling */
+.wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 18vh; 
+    min-height: 100px;
+    max-height: 250px;
+    z-index: 1; 
+    filter: drop-shadow(0 0 10px rgba(255, 0, 150, 0.8)) 
+            drop-shadow(0 0 15px rgba(0, 200, 255, 0.6));
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-bottom: -7px; 
+    min-height: 100px;
+    max-height: 200px;
+    z-index: 2;
+}
+
+/* FIX: Ensuring the animation keyframes are running */
+.parallax > use {
+    animation: move-forever 18s cubic-bezier(.55, .5, .45, .5) infinite; 
+}
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+.parallax > use:nth-child(4) {
+    fill: var(--dark-bg); 
+}
+
+
+/* --- SECTION MARGINS & SPACING FIXES --- */
+.content-section {
+    padding: var(--section-padding); /* Consistent vertical spacing */
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    margin: 0; 
+    position: relative;
+}
+
+/* ANIMATED DIVIDER LINE SPACING FIX */
+.animated-divider {
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent-color) 50%, transparent 100%);
+    position: relative;
+    overflow: hidden;
+    margin: 50px 0; 
+}
+
+/* --- CARD GRID SPACING FIXES --- */
+
+.feature-grid, .device-mockup-grid {
+    /* FIX: Added margin-top for spacing from the section header */
+    margin-top: 30px; 
+    /* FIX: Ensures internal spacing for all cards */
+    gap: 20px;
+}
+
+.glass-card {
+    background-color: var(--card-bg-blur); 
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px); 
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    transition: transform var(--animation-speed) ease, box-shadow var(--animation-speed) ease;
+}
+
+/* Team Card Layout */
+.team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; /* Consistent gap between team cards */
+}
+
+/* --- DOWNLOAD SECTION BUTTON FIXES --- */
+.download-section {
+    text-align: center;
+}
+
+.download-buttons {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* FIX: Centers the button */
+    justify-content: center;
+    gap: 20px;
+}
+
+.download-buttons .btn {
+    width: 90%; 
+    max-width: 350px;
+    margin: 0; /* Clear margin to be centered by parent */
+    display: flex; /* Ensure the button maintains flex layout */
+    align-items: center;
+    justify-content: center;
+}
+
+.platform-icons {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+
+/* --- FOOTER FIXES --- */
+footer {
+    padding: 40px 0 20px 0;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.made-with-love {
+    position: absolute;
+    bottom: 10px;
+    right: 40px; 
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+    /* Mobile Layout adjustments */
+    .hero-content {
+        padding-top: calc(var(--header-height) + 40px); /* Slightly less push down */
+    }
+    .content-section {
+        padding: 50px 0; /* Reduced padding on mobile */
+    }
+    .made-with-love {
+        position: static;
+        margin: 20px auto 0 auto;
+        transform: none;
+    }
+}
