@@ -1,0 +1,298 @@
+/* GLOBAL STYLES & RESET */
+:root {
+    --dark-bg: #0d0d0d;
+    --text-color: #ffffff;
+    --accent-color: #8a2be2; /* BlueViolet for highlights */
+    --card-bg: #1c1c1c;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --animation-speed: 0.5s; /* Faster animation speed */
+    --scroll-animation-speed: 0.6s; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 95%; /* Increased width for better mobile usage */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color var(--animation-speed) ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 5px;
+    width: auto; /* Revert to auto width for desktop look */
+}
+
+/* HEADER & NAVIGATION */
+header {
+    background-color: rgba(0, 0, 0, 0.6); 
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(8px); /* Stronger blur for mobile */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Mobile-First Navigation */
+.menu-toggle {
+    display: block; /* Always show toggle on mobile */
+}
+
+nav .nav-links {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    background-color: var(--card-bg);
+    position: absolute;
+    top: 60px; /* Adjust based on header height */
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+nav .nav-links.active {
+    display: flex;
+}
+
+nav .nav-links li {
+    margin: 5px 0;
+    text-align: center;
+}
+
+nav .nav-links a {
+    padding: 10px 0;
+    display: block;
+    font-size: 1.1rem; /* Larger font for mobile links */
+}
+
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+    nav .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
+        border-top: none;
+        box-shadow: none;
+    }
+}
+
+
+/* HERO SECTION */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #180530 0%, #0d0d0d 100%); 
+}
+
+.hero-content {
+    z-index: 5;
+    position: relative;
+    width: 100%;
+    animation: fadeIn 1s ease-out;
+}
+
+.hero-content h1 {
+    font-size: clamp(3rem, 12vw, 5.5rem); /* Larger font on mobile */
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 0.2em;
+    text-shadow: 0 0 20px rgba(138, 43, 226, 0.8); /* Stronger glow */
+}
+
+/* Animated Multi-Color Wave Styling */
+.wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 18vh; /* Slightly taller wave */
+    min-height: 100px;
+    max-height: 250px;
+    /* Adding a filter glow to the container */
+    filter: drop-shadow(0 0 10px rgba(255, 0, 150, 0.8)) 
+            drop-shadow(0 0 15px rgba(0, 200, 255, 0.6));
+}
+
+/* Wave animation remains the same, but the multi-color fill creates the glow effect */
+.parallax > use {
+    animation: move-forever 18s cubic-bezier(.55, .5, .45, .5) infinite; /* Faster animation */
+}
+.parallax > use:nth-child(1) {
+    animation-delay: -1s;
+    animation-duration: 6s;
+}
+.parallax > use:nth-child(2) {
+    animation-delay: -2s;
+    animation-duration: 9s;
+}
+.parallax > use:nth-child(3) {
+    animation-delay: -3s;
+    animation-duration: 12s;
+}
+.parallax > use:nth-child(4) {
+    animation-delay: -4s;
+    animation-duration: 18s;
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+/* SCROLL ANIMATION */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--scroll-animation-speed) ease-out, transform var(--scroll-animation-speed) ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CONTENT SECTIONS */
+.content-section {
+    padding: 80px 0; /* Reduced padding for better flow on mobile */
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.about-section p {
+    font-size: 1rem;
+    max-width: 90%; /* Wider text block on mobile */
+    margin: 1rem auto;
+}
+
+/* FEATURES GRID & CARDS */
+.feature-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Smaller min width for mobile */
+    gap: 20px;
+}
+
+.feature-card {
+    transition: transform var(--animation-speed) ease, box-shadow var(--animation-speed) ease;
+    text-align: center; /* Center content in cards on mobile */
+}
+
+.feature-card h3 {
+    justify-content: center; /* Center icons with text */
+}
+
+/* DEVICES SECTION */
+.device-mockup-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Tighter grid for devices */
+}
+
+.device-card img {
+    max-width: 80%;
+}
+
+/* TEAM SECTION */
+.team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Tighter grid for team */
+}
+
+.team-member-card p {
+    font-size: 0.85rem;
+}
+
+.team-member-card .social-links {
+    margin-top: 5px;
+}
+
+.developer-card .social-links {
+    display: none; /* Hide social links for developers for cleaner look */
+}
+
+/* DOWNLOAD SECTION */
+.download-buttons {
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn {
+    width: 90%; /* Max width on mobile */
+    max-width: 350px;
+    padding: 15px 20px;
+    font-size: 1rem;
+}
+
+.platform-icons i {
+    font-size: 2rem;
+    margin: 0 10px;
+}
+
+/* FOOTER */
+.made-with-love {
+    right: 50%;
+    transform: translateX(50%); /* Center the element on small screens */
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Desktop Overrides */
+@media (min-width: 768px) {
+    .content-section {
+        padding: 100px 0;
+    }
+    
+    .made-with-love {
+        position: absolute;
+        bottom: 10px;
+        right: 40px;
+        transform: none;
+        width: auto;
+    }
+    
+    .feature-card {
+        text-align: left; /* Align text left on desktop */
+    }
+
+    .feature-card h3 {
+        justify-content: flex-start;
+    }
+}
