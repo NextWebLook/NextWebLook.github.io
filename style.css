@@ -1,0 +1,315 @@
+/* GLOBAL STYLES & RESET */
+:root {
+    --dark-bg: #0d0d0d;
+    --text-color: #ffffff;
+    --accent-color: #8a2be2; /* BlueViolet for highlights */
+    --card-bg: rgba(28, 28, 28, 0.5); /* Semi-transparent for glass effect */
+    --border-color: rgba(255, 255, 255, 0.1);
+    --animation-speed: 0.5s; 
+    --scroll-animation-speed: 0.6s; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* HEADER & LOGO */
+header {
+    background-color: rgba(0, 0, 0, 0.6); 
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+}
+
+.header-logo {
+    height: 30px; /* Adjust size of logo image */
+    width: auto;
+}
+
+/* SCROLL ANIMATION */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--scroll-animation-speed) ease-out, transform var(--scroll-animation-speed) ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* GLASSMORHISM CARD STYLE */
+.glass-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px); /* The key to the glass effect */
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    transition: transform var(--animation-speed) ease, box-shadow var(--animation-speed) ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(138, 43, 226, 0.4);
+}
+
+/* FEATURES GRID & CARDS */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    padding: 25px;
+    text-align: center;
+}
+
+.feature-card h3 {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.feature-card h3 i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+
+/* DEVICES SECTION */
+.device-mockup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+}
+
+.device-card {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.device-card i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.device-card h3 {
+    margin: 5px 0;
+}
+
+/* TEAM SECTION */
+.team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.team-member-card {
+    display: flex;
+    flex-direction: row; /* Layout icon/name side by side */
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px;
+    text-align: left;
+    gap: 15px;
+}
+
+.team-member-card i.team-icon {
+    font-size: 2.2rem;
+    color: var(--accent-color);
+    min-width: 30px;
+}
+
+.team-member-card .member-info {
+    flex-grow: 1;
+}
+
+.team-member-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.team-member-card p {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 2px;
+}
+
+.team-member-card .social-links {
+    margin-left: auto; /* Push links to the right */
+    display: flex;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+/* ANIMATED DIVIDER LINE */
+.animated-divider {
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent-color) 50%, transparent 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-divider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.8), transparent);
+    animation: sweep 3s linear infinite;
+}
+
+@keyframes sweep {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* DOWNLOAD SECTION */
+.primary-btn i {
+    font-size: 1.3rem;
+}
+
+/* FOOTER */
+footer {
+    padding: 40px 0 20px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    position: relative;
+}
+
+.footer-content {
+    /* Ensures the copyright is centered */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-content p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Made With Love Unique Styling */
+.made-with-love {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+    padding: 5px 10px;
+    background: rgba(138, 43, 226, 0.1);
+    border-radius: 5px;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.made-with-love::before {
+    content: '\2728'; /* Sparkle Unicode */
+    color: gold;
+    font-size: 1rem;
+}
+
+.made-with-love .rix-name {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    .header-logo {
+        height: 25px;
+    }
+
+    .feature-card h3 {
+        justify-content: flex-start; /* Better alignment on small screens */
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-member-card {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .team-member-card .member-info {
+        flex-grow: 0;
+    }
+
+    .team-member-card .social-links {
+        display: none; /* Hide social links completely on mobile for team cards */
+    }
+
+    .made-with-love {
+        position: static;
+        width: auto;
+        margin: 20px auto 0 auto;
+        transform: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-content {
+        gap: 5px;
+    }
+}
